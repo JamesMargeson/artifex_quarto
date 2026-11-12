@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "projects/ercot_analysis.html",
+    "href": "projects/ercot_analysis.html",
+    "title": "Artifex",
+    "section": "",
+    "text": "import pandas as pd\nimport numpy as np\nimport seaborn as sns\n\n\nercot = pd.read_csv(\"../data/ercot_artifex.csv\")\n\nercot.head()\n\n\nfrom numpy import median\nercot[\"time_utc\"] = pd.to_datetime(ercot[\"datetime_utc\"], format =\"%m/%d/%y %H:%M\")\n\new = (\nercot.query(\"type == 'LZ'\")\n.groupby([\"time_utc\"], as_index= False)\n.agg(max_spread = (\"price\", lambda x: x.max() - x.min() ))\n.assign(hour = lambda x: x[\"time_utc\"].dt.hour, \n        prepost = lambda x: np.where(x[\"time_utc\"] &lt; pd.Timestamp(\"2025-12-10\"), \"Pre-RTCB\", \"Post-RTCB\"))\n.groupby([\"hour\", \"prepost\"], as_index= False)\n.agg(med_max_spread = (\"max_spread\", median))\n)\n\nsns.lineplot(data = ew, x = \"hour\", y = \"med_max_spread\", hue = \"prepost\", marker = \"o\")"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "artifex-quarto",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  }
+]
