@@ -159,7 +159,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div id="82eef3d7" class="cell" data-execution_count="1">
+<div id="82eef3d7" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -214,8 +214,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    .agg(median_spread<span class="op">=</span>(<span class="st">"spread"</span>, <span class="st">"median"</span>))</span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>nspin_analysis <span class="op">=</span> <span class="st">"NSPIN experienced the most noticeable change in price spreads following the implementation of RTC+B on December 5, 2025. Before implementation, the median of the daily median spreads was approximately $0.36, compared to $2.60 afterward. During the pre-RTC+B period, spreads generally remained relatively low, with occasional increases, particularly around December 2. Following implementation, spreads increased substantially and remained consistently elevated throughout the observed period. The highest daily median spread after implementation occurred on December 8, reaching approximately $5.59. Although spreads gradually declined afterward, they remained higher than most of the pre-implementation observations. This suggests that NSPIN became more expensive relative to the lowest-priced ancillary service following RTC+B, although other market factors could also have contributed to the change."</span></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>rrs_analysis <span class="op">=</span> <span class="st">"RRS demonstrated a less consistent change following RTC+B implementation. Before implementation, the median of its daily median spreads was approximately $0.06, increasing to around $0.23 afterward. Unlike NSPIN, RRS experienced several periods of very low or zero spreads both before and after RTC+B. Before implementation, there was a noticeable increase around December 2, followed by a larger spike on December 4, although the latter represents only a partial UTC day. After implementation, the largest daily median spread occurred on December 6 at approximately $1.54, with additional smaller increases throughout the period. Overall, RRS showed a modest increase in its typical daily spread, but the continued fluctuations suggest that the impact on its relative pricing was less pronounced than for NSPIN."</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>nspin_analysis <span class="op">=</span> <span class="st">"NSPIN experienced the most noticeable change in price spreads following the implementation of RTC+B on December 5, 2025. Before implementation, the median of the daily median spreads was around $0.36, compared to $2.60 afterward. During the pre-RTC+B period, spreads generally remained relatively low, with occasional increases, particularly around December 2. Following implementation, spreads increased substantially and remained consistently elevated throughout the year. The highest daily median spread after implementation occurred on December 8, reaching around $5.59. Although spreads gradually declined afterward, they remained higher than most of the pre-implementation observations. This suggests that NSPIN became more expensive relative to the lowest-priced ancillary service following RTC+B."</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>rrs_analysis <span class="op">=</span> <span class="st">"RRS demonstrated a less consistent change following RTC+B implementation. Before implementation, the median of its daily median spreads was around $0.06, increasing to around $0.23 afterward. Unlike NSPIN, RRS experienced several periods of very low or zero spreads both before and after RTC+B. Before implementation, there was a noticeable increase around December 2, followed by a larger spike on December 4, although the latter represents only a partial UTC day. After implementation, the largest daily median spread occurred on December 6 at around $1.54, with additional smaller increases throughout the period. Overall, RRS showed a small increase in its typical daily spread, but the ongoing fluctuations suggest that the impact on its relative pricing was less pronounced than for NSPIN."</span></span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>ecrs_analysis <span class="op">=</span> <span class="st">"ECRS also experienced a change in its price spreads following RTC+B, although the increase was considerably smaller than that observed for NSPIN. Before implementation, the median of its daily median spreads was $0.00, indicating that ECRS was frequently the lowest-priced ancillary service during the observed hours. Following implementation, this increased to approximately $0.14. ECRS spreads became more consistently positive after RTC+B, with noticeable increases on December 11, 15, and 19. Despite these increases, ECRS generally maintained relatively low price differences compared with NSPIN. This suggests that ECRS prices moved somewhat farther from the lowest ancillary service price after implementation, but the overall change remained relatively limited."</span></span>
 <span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>ancillary_type <span class="op">=</span> [</span>
@@ -242,23 +242,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>    ax.tick_params(axis<span class="op">=</span><span class="st">"x"</span>, labelsize<span class="op">=</span><span class="dv">6</span>)</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>    ax.<span class="bu">set</span>(</span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">"Daily Median NSPIN Price Spread"</span>,</span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>        xlabel<span class="op">=</span><span class="st">"Date (UTC)"</span>,</span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>        ylabel<span class="op">=</span><span class="st">"Median Price Spread ($/MW-h)"</span>,</span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> data, name, analysis <span class="kw">in</span> ancillary_type:</span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> plt.figure()</span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>    make_graph(name, data)</span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>    plt.gca().set_title(<span class="ss">f"Daily Median </span><span class="sc">{</span>name<span class="sc">.</span>upper()<span class="sc">}</span><span class="ss"> Price Spread"</span>)</span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>    display(fig)</span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>    plt.close(fig)</span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>    display(Markdown(analysis))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>    ax.legend(title<span class="op">=</span><span class="st">"Ancillary Service"</span>,</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>    loc<span class="op">=</span><span class="st">"upper left"</span>,</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>    fontsize<span class="op">=</span><span class="dv">8</span>,</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>    title_fontsize<span class="op">=</span><span class="dv">10</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>    ax.<span class="bu">set</span>(</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">"Daily Median NSPIN Price Spread"</span>,</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>        xlabel<span class="op">=</span><span class="st">"Date (UTC)"</span>,</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>        ylabel<span class="op">=</span><span class="st">"Median Price Spread ($/MW-h)"</span>,</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> data, name, analysis <span class="kw">in</span> ancillary_type:</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> plt.figure()</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>    make_graph(name, data)</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>    plt.gca().set_title(<span class="ss">f"Daily Median </span><span class="sc">{</span>name<span class="sc">.</span>upper()<span class="sc">}</span><span class="ss"> Price Spread"</span>)</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>    display(fig)</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>    plt.close(fig)</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>    display(Markdown(analysis))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
