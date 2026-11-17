@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://JamesMargeson.github.io/artifex_quarto/index.html</loc>
-    <lastmod>2026-11-17T18:03:28.088Z</lastmod>
-  </url>
-  <url>
-    <loc>https://JamesMargeson.github.io/artifex_quarto/projects/ercot_analysis.html</loc>
-    <lastmod>2026-11-17T18:03:28.089Z</lastmod>
-  </url>
-  <url>
     <loc>https://JamesMargeson.github.io/artifex_quarto/about.html</loc>
-    <lastmod>2026-11-17T18:03:28.032Z</lastmod>
+    <lastmod>2026-11-17T18:27:19.325Z</lastmod>
   </url>
   <url>
     <loc>https://JamesMargeson.github.io/artifex_quarto/projects/ercot.html</loc>
-    <lastmod>2026-11-17T18:04:09.219Z</lastmod>
+    <lastmod>2026-11-17T18:28:29.297Z</lastmod>
+  </url>
+  <url>
+    <loc>https://JamesMargeson.github.io/artifex_quarto/index.html</loc>
+    <lastmod>2026-11-17T18:27:19.387Z</lastmod>
+  </url>
+  <url>
+    <loc>https://JamesMargeson.github.io/artifex_quarto/projects/ercot_analysis.html</loc>
+    <lastmod>2026-11-17T18:27:19.388Z</lastmod>
   </url>
 </urlset>
